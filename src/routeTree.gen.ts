@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PepperlFuchsRouteImport } from './routes/pepperl-fuchs'
+import { Route as ObrienAmatekRouteImport } from './routes/obrien-amatek'
+import { Route as KontaktaiRouteImport } from './routes/kontaktai'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PepperlFuchsRoute = PepperlFuchsRouteImport.update({
+  id: '/pepperl-fuchs',
+  path: '/pepperl-fuchs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObrienAmatekRoute = ObrienAmatekRouteImport.update({
+  id: '/obrien-amatek',
+  path: '/obrien-amatek',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KontaktaiRoute = KontaktaiRouteImport.update({
+  id: '/kontaktai',
+  path: '/kontaktai',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kontaktai': typeof KontaktaiRoute
+  '/obrien-amatek': typeof ObrienAmatekRoute
+  '/pepperl-fuchs': typeof PepperlFuchsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kontaktai': typeof KontaktaiRoute
+  '/obrien-amatek': typeof ObrienAmatekRoute
+  '/pepperl-fuchs': typeof PepperlFuchsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kontaktai': typeof KontaktaiRoute
+  '/obrien-amatek': typeof ObrienAmatekRoute
+  '/pepperl-fuchs': typeof PepperlFuchsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/kontaktai' | '/obrien-amatek' | '/pepperl-fuchs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/kontaktai' | '/obrien-amatek' | '/pepperl-fuchs'
+  id: '__root__' | '/' | '/kontaktai' | '/obrien-amatek' | '/pepperl-fuchs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KontaktaiRoute: typeof KontaktaiRoute
+  ObrienAmatekRoute: typeof ObrienAmatekRoute
+  PepperlFuchsRoute: typeof PepperlFuchsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/pepperl-fuchs': {
+      id: '/pepperl-fuchs'
+      path: '/pepperl-fuchs'
+      fullPath: '/pepperl-fuchs'
+      preLoaderRoute: typeof PepperlFuchsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/obrien-amatek': {
+      id: '/obrien-amatek'
+      path: '/obrien-amatek'
+      fullPath: '/obrien-amatek'
+      preLoaderRoute: typeof ObrienAmatekRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kontaktai': {
+      id: '/kontaktai'
+      path: '/kontaktai'
+      fullPath: '/kontaktai'
+      preLoaderRoute: typeof KontaktaiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KontaktaiRoute: KontaktaiRoute,
+  ObrienAmatekRoute: ObrienAmatekRoute,
+  PepperlFuchsRoute: PepperlFuchsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
