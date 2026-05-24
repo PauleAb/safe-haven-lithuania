@@ -32,11 +32,15 @@ export const Route = createRootRoute({
       { title: "Medianta — Pramoninės saugos sprendimai" },
       { name: "description", content: "Patikimi pramoninės saugos prietaisų sprendimai B2B klientams Lietuvoje." },
       { name: "author", content: "Medianta" },
-      { property: "og:title", content: "Medianta — Industrial Safety Solutions" },
+      { property: "og:title", content: "Medianta — Pramoninės saugos sprendimai" },
       { property: "og:description", content: "Patikimi pramoninės saugos prietaisų sprendimai B2B klientams Lietuvoje." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Medianta — Pramoninės saugos sprendimai" },
+      { name: "twitter:description", content: "Patikimi pramoninės saugos prietaisų sprendimai B2B klientams Lietuvoje." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5fb237b5-3a14-48b2-ae6d-1e10ebdf7333/id-preview-a843406b--fdd19bc4-b0ec-4e00-9e1a-127e41422486.lovable.app-1777563279600.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5fb237b5-3a14-48b2-ae6d-1e10ebdf7333/id-preview-a843406b--fdd19bc4-b0ec-4e00-9e1a-127e41422486.lovable.app-1777563279600.png" },
     ],
     links: [
       {
